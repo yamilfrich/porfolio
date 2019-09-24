@@ -1,10 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `Yam's Portfolio`,
+    title: `Yamil Friadenrich`,
     description: `My portfolio`,
     author: `@yamilfrich`
   },
   plugins: [
+    `gatsby-plugin-material-ui`,
     `gatsby-plugin-typescript`,
     `gatsby-plugin-tslint`,
     `gatsby-plugin-transition-link`,

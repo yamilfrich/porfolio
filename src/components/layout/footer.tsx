@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
-// @ts-ignore
 import { FaEnvelope, FaPhone } from "react-icons/fa";
 
 const Footer = () => (

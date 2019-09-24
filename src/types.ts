@@ -6,16 +6,18 @@ export interface IQueryObject {
   };
 }
 
+export interface IImageObject {
+  childImageSharp: {
+    fluid: FluidObject;
+  };
+}
+
 export interface IProjectJsonObject {
   slug: string;
   title: string;
   description: string;
   url: string;
-  image: {
-    childImageSharp: {
-      fluid: FluidObject;
-    };
-  };
+  image: IImageObject;
 }
 
 export interface IProjectObject {

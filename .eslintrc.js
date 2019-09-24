@@ -19,5 +19,6 @@ module.exports = {
         "react"
     ],
     "rules": {
+        "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": true }]
     }
 };
