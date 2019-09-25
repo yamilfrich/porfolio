@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Basset",
+    "slug": "project-1",
+    "url": "https://basset.la",
+    "image": "./images/basset.png",
+    "description": "Flights module"
+  },
+  {
+    "title": "MercadoLibre",
+    "slug": "project-2",
+    "url": "https://www.mercadolibre.com.ar/gz/app",
+    "image": "./images/ml-app-2.jpg",
+    "description": "iOS app"
+  },
+  {
+    "title": "IMS",
+    "slug": "project-3",
+    "url": "https://one.imscorporate.com",
+    "image": "./images/imsone.png",
+    "description": "IMS One app"
+  },
+  {
+    "title": "Basset",
+    "slug": "project-1",
+    "url": "https://basset.la",
+    "image": "./images/basset.png",
+    "description": "Flights module"
+  },
+  {
+    "title": "MercadoLibre",
+    "slug": "project-2",
+    "url": "https://www.mercadolibre.com.ar/gz/app",
+    "image": "./images/ml-app-2.jpg",
+    "description": "iOS app"
+  },
+  {
+    "title": "IMS",
+    "slug": "project-3",
+    "url": "https://one.imscorporate.com",
+    "image": "./images/imsone.png",
+    "description": "IMS One app"
+  }
+]

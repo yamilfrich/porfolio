@@ -1,0 +1,37 @@
+version: 2
+
+defaults: &defaults
+  working_directory: ~/project/portfolio
+  docker:
+    - image: circleci/node
+
+jobs:
+  install:
+    <<: *defaults
+    steps:
+      - checkout
+      - run: yarn
+      - save_cache:
+          paths:
+            - node_modules/
+          key: v1-portfolio-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - portfolio
+
+  test:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run: yarn test
+
+workflows:
+  version: 2
+  install-and-test:
+    jobs:
+      - install
+      - test:
+          requires:
+            - install
