@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{361:function(t,n,e){"use strict";e.r(n);var b=e(4),c=(e(1),e(353)),l=e(355);n.default=function(){return Object(b.b)(c.a,null,Object(b.b)(l.a,{title:"About: Login"}),Object(b.b)("div",{className:"section text-center"},Object(b.b)("h1",null,"About: Login"),Object(b.b)("p",null,"Bla bla login")))}}}]);
+//# sourceMappingURL=component---src-pages-about-login-tsx-fbeadce813d6c5cc94b2.js.map
