@@ -1,5 +1,6 @@
 import React from "react";
 import * as Gatsby from "gatsby";
+// @ts-ignore
 import renderer from "react-test-renderer";
 import SEO from "../seo";
 
