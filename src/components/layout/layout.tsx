@@ -3,7 +3,6 @@ import React from "react";
 import Footer from "./footer";
 import Header from "./header";
 import "./layout.css";
-import PageCover from "./page-cover";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const data = useStaticQuery(graphql`
@@ -19,7 +18,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <React.Fragment>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <PageCover />
       <main>{children}</main>
       <Footer />
     </React.Fragment>

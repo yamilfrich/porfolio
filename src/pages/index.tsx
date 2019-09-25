@@ -11,8 +11,9 @@ const IndexPage = () => (
       <div className="text-center">
         <h2 className="home-title">Yamil Friadenrich</h2>
         <p css={homeTextStyles}>
-          Welcome to my portfolio. Here you can see some of the projects I
-          worked on my career and also know more about me!
+          Welcome to my portfolio. On this webapp you'll see the projects I
+          worked during my career and also some experiments and fundamental code
+          that I decided to include to show you some of what I can do.
         </p>
         <SectionFooter text="projects" linkTo="/projects" />
       </div>

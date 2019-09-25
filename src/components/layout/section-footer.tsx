@@ -1,13 +1,12 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
-// @ts-ignore
-import AniLink from "gatsby-plugin-transition-link/AniLink";
+import CustomAniLink from "../commons/custom-anilink";
 
 const SectionFooter = ({ text, linkTo }: { text: string; linkTo: string }) => (
   <div css={sectionFooter}>
-    <AniLink paintDrip={true} hex="#fff" to={linkTo}>
+    <CustomAniLink to={linkTo}>
       <span>{text}</span>
-    </AniLink>
+    </CustomAniLink>
   </div>
 );
 

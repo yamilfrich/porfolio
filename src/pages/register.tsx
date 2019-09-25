@@ -5,6 +5,7 @@ import TextField from "@material-ui/core/TextField";
 import { navigate } from "gatsby";
 import React, { FormEvent } from "react";
 import Layout from "../components/layout/layout";
+import CustomAniLink from "../components/commons/custom-anilink";
 
 interface IUser {
   name: string;
@@ -51,6 +52,15 @@ class Register extends React.Component<{}, IState> {
   handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
+    navigate("/login", {
+      state: {
+        message: "Account created successfully",
+        type: "success"
+      }
+    });
+
+    return;
+
     this.setState({ errors: [] });
 
     const data = {
@@ -73,7 +83,12 @@ class Register extends React.Component<{}, IState> {
     const resJson = await res.json();
 
     if (res.ok) {
-      navigate("/login");
+      navigate("/login", {
+        state: {
+          message: "Account created successfully",
+          type: "success"
+        }
+      });
     } else if (res.status === 400) {
       this.setState({ errors: resJson.errors });
     } else {
@@ -97,7 +112,7 @@ class Register extends React.Component<{}, IState> {
                 <TextField
                   name="name"
                   value={this.state.name}
-                  label="Name"
+                  label="Full Name"
                   onChange={this.handleChange}
                   fullWidth={true}
                 />
@@ -134,12 +149,16 @@ class Register extends React.Component<{}, IState> {
               <Button
                 type="submit"
                 fullWidth={true}
-                color="primary"
+                color="secondary"
                 variant="contained"
               >
                 Register
               </Button>
             </form>
+            <div>
+              Already have an account?{` `}
+              <CustomAniLink to="/login">Login instead</CustomAniLink>
+            </div>
           </div>
         </div>
       </Layout>
@@ -153,9 +172,9 @@ const registerStyles = css`
   border-radius: 5px;
   margin: 0 auto;
   padding: 20px;
-  width: 400px;
+  width: 360px;
   & form > div {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 `;
 

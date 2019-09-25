@@ -1,9 +1,8 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 import Img from "gatsby-image";
-// @ts-ignore
-import AniLink from "gatsby-plugin-transition-link/AniLink";
 import { IProjectObject } from "../types";
+import CustomAniLink from "./commons/custom-anilink";
 
 const ProjectPreview = ({
   slug,
@@ -14,21 +13,17 @@ const ProjectPreview = ({
   <div css={projectPreviewStyles}>
     <div css={innerContainerStyles}>
       <div css={imageContainerStyles}>
-        <AniLink to={`/${slug}/`} paintDrip={true} hex="#fff">
+        <CustomAniLink to={`/${slug}/`}>
           <Img fluid={imageData} alt={title} />
-        </AniLink>
+        </CustomAniLink>
       </div>
       <div css={titleOverlayStyles}>
         <h5>
-          <AniLink to={`/${slug}/`} paintDrip={true} hex="#fff">
-            {title}
-          </AniLink>
+          <CustomAniLink to={`/${slug}/`}>{title}</CustomAniLink>
         </h5>
         <p>
           {description} <br />
-          <AniLink to={`/${slug}/`} paintDrip={true} hex="#fff">
-            Read more &rarr;
-          </AniLink>
+          <CustomAniLink to={`/${slug}/`}>Read more &rarr;</CustomAniLink>
         </p>
       </div>
     </div>
