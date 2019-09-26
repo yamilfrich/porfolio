@@ -31,7 +31,8 @@ jobs:
   deploy:
     executor: node
     steps:
-      - checkout
+      - attach_workspace:
+          at: ~/project
       - run:
           name: Deploy to Github Pages
           command: yarn deploy
