@@ -52,15 +52,6 @@ class Register extends React.Component<{}, IState> {
   handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    navigate("/login", {
-      state: {
-        message: "Account created successfully",
-        type: "success"
-      }
-    });
-
-    return;
-
     this.setState({ errors: [] });
 
     const data = {
