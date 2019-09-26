@@ -37,8 +37,12 @@ jobs:
       - attach_workspace:
           at: ~/project
       - run:
+          name: StrictHostKeyChecking Hack
+          command: |
+            mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+      - run:
           name: Deploy to Github Pages
-          command: yarn deploy StrictHostKeyChecking=no
+          command: yarn deploy
 
 workflows:
   version: 2
