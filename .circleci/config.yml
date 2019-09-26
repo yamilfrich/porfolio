@@ -28,9 +28,18 @@ jobs:
           at: ~/project
       - run: yarn test
 
+  deploy:
+    docker:
+      - image: buildpack-deps:trusty
+    steps:
+      - checkout
+      - run:
+          name: Deploy to Github Pages
+          command: yarn deploy
+
 workflows:
   version: 2
-  install-and-test:
+  build-test-deploy:
     jobs:
       - build:
           filters:
@@ -44,3 +53,9 @@ workflows:
                 - gh-pages
           requires:
             - build
+      - deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
