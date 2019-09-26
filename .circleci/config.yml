@@ -29,8 +29,7 @@ jobs:
       - run: yarn test
 
   deploy:
-    docker:
-      - image: buildpack-deps:trusty
+    executor: node
     steps:
       - checkout
       - run:
