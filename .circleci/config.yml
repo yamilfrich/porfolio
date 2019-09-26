@@ -33,13 +33,9 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - "0b:1f:e5:69:ef:e1:ed:30:66:38:03:d4:8a:d9:66:43"
+            - "e5:34:75:2d:26:c2:2d:05:70:29:67:86:fa:c3:22:17"
       - attach_workspace:
           at: ~/project
-      - run:
-          name: StrictHostKeyChecking Hack
-          command: |
-            echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
       - run:
           name: Deploy to Github Pages
           command: yarn deploy
