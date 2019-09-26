@@ -1,13 +1,14 @@
-version: 2
+version: 2.1
 
-defaults: &defaults
-  working_directory: ~/project/portfolio
-  docker:
-    - image: circleci/node
+executors:
+  node:
+    docker:
+      - image: circleci/node
+    working_directory: ~/project/portfolio
 
 jobs:
-  install:
-    <<: *defaults
+  build:
+    executor: node
     steps:
       - checkout
       - run: yarn
@@ -21,17 +22,40 @@ jobs:
             - portfolio
 
   test:
-    <<: *defaults
+    executor: node
     steps:
       - attach_workspace:
           at: ~/project
       - run: yarn test
 
+  deploy:
+    docker:
+      - image: buildpack-deps:trusty
+    steps:
+      - checkout
+      - run:
+          name: Deploy to Github Pages
+          command: yarn deploy
+
 workflows:
   version: 2
-  install-and-test:
+  build-test-deploy:
     jobs:
-      - install
+      - build:
+          filters:
+            branches:
+              ignore:
+                - gh-pages
       - test:
+          filters:
+            branches:
+              ignore:
+                - gh-pages
           requires:
-            - install
+            - build
+      - deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master

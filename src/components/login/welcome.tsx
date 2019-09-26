@@ -5,9 +5,10 @@ import CustomAniLink from "../commons/custom-anilink";
 const LoginWelcome = () => (
   <div css={loginTextStyles}>
     <h2>Welcome to the login</h2>
-    If you're wondering why would be a login page be needed for a portfolio, the
-    answer is: <br />
-    <br />
+    <p>
+      If you're wondering why would be a login page be needed for a portfolio,
+      the answer is:{" "}
+    </p>
     <ul>
       <li>
         Authentication flows are essential for most of the applications we build
@@ -32,6 +33,9 @@ const loginTextStyles = css`
   border-right: 1px solid #eaeaea;
   & ul {
     text-align: left;
+  }
+  & p {
+    margin-bottom: 10px;
   }
 `;
 

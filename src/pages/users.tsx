@@ -25,7 +25,7 @@ class Users extends React.Component<{}, IState> {
   }
 
   getUsers = async () => {
-    const res = await fetch("http://localhost:5001/users/", {
+    const res = await fetch(`${process.env.GATSBY_PORTFOLIO_API_URL}users`, {
       headers: {
         "Content-Type": "application/json"
       },

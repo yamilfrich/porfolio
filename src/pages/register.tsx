@@ -52,15 +52,6 @@ class Register extends React.Component<{}, IState> {
   handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    navigate("/login", {
-      state: {
-        message: "Account created successfully",
-        type: "success"
-      }
-    });
-
-    return;
-
     this.setState({ errors: [] });
 
     const data = {
@@ -74,11 +65,14 @@ class Register extends React.Component<{}, IState> {
   };
 
   createUser = async (data: IUser) => {
-    const res = await fetch("http://localhost:5001/auth/register", {
-      body: JSON.stringify(data),
-      headers: { "Content-Type": "application/json" },
-      method: "post"
-    });
+    const res = await fetch(
+      `${process.env.GATSBY_PORTFOLIO_API_URL}auth/register`,
+      {
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" },
+        method: "post"
+      }
+    );
 
     const resJson = await res.json();
 
