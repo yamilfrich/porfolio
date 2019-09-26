@@ -31,11 +31,11 @@ jobs:
   deploy:
     executor: node
     steps:
-      - attach_workspace:
-          at: ~/project
       - add_ssh_keys:
           fingerprints:
             - "0b:1f:e5:69:ef:e1:ed:30:66:38:03:d4:8a:d9:66:43"
+      - attach_workspace:
+          at: ~/project
       - run:
           name: Deploy to Github Pages
           command: yarn deploy
