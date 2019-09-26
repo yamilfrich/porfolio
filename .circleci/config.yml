@@ -33,8 +33,10 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - "e0:25:7a:7a:4c:62:ca:ee:40:8f:98:e2:20:1e:fd:0f"
             - "0b:1f:e5:69:ef:e1:ed:30:66:38:03:d4:8a:d9:66:43"
+      - run:
+          name: Keyscan Github (HACK)
+          command: ssh-keyscan -H github.com >> ~/.ssh/known_hosts
       - attach_workspace:
           at: ~/project
       - run:
@@ -51,12 +53,12 @@ workflows:
               ignore:
                 - gh-pages
       - test:
+          requires:
+            - build
           filters:
             branches:
               ignore:
                 - gh-pages
-          requires:
-            - build
       - deploy:
           requires:
             - test
