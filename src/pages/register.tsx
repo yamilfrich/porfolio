@@ -74,7 +74,7 @@ class Register extends React.Component<{}, IState> {
   };
 
   createUser = async (data: IUser) => {
-    const res = await fetch(`${process.env.API_HOST}auth/register`, {
+    const res = await fetch(`${process.env.PORTFOLIO_API_URL}auth/register`, {
       body: JSON.stringify(data),
       headers: { "Content-Type": "application/json" },
       method: "post"

@@ -57,7 +57,7 @@ class Login extends React.Component<{ location: any }, IState> {
   };
 
   loginUser = async (data: IUser) => {
-    const res = await fetch(`${process.env.API_HOST}auth/login`, {
+    const res = await fetch(`${process.env.PORTFOLIO_API_URL}auth/login`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
