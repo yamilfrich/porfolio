@@ -2,8 +2,16 @@
 import { css, jsx } from "@emotion/core";
 // import p5 from "p5/lib/p5.min";
 // import "p5/lib/addons/p5.dom";
-import P5Wrapper from "../../components/p5wrapper";
+import Loadable from "react-loadable";
+// import P5Wrapper from "../../components/p5wrapper";
 import Layout from "../../components/layout/layout";
+
+const Loading = () => <div>Loading...</div>;
+
+const P5Wrapper = Loadable({
+  loader: () => import("../../components/p5wrapper"),
+  loading: Loading
+});
 
 const Tateti = () => {
   return (
