@@ -34,6 +34,11 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "e5:34:75:2d:26:c2:2d:05:70:29:67:86:fa:c3:22:17"
+      - run:
+          name: Setting git user and pass
+          command: |
+            git config --global user.name CircleCI
+            git config --global user.email circleci@opendata.team
       - attach_workspace:
           at: ~/project
       - run:
